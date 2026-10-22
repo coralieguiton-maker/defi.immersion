@@ -7,12 +7,12 @@
 <meta name="description" content="Découvre ton défi IMMERSION et viens le relever au stand !">
 <title>Ton défi IMMERSION</title>
 <style>
-:root{bleu pétrole #276472;
+:root{--bleu pétrole #276472;
   --Beige sable : #D8C5AB
   --Terracotta : #CB844A;
-  }
+  --white: #D8C5AB}
 *{box-sizing:border-box}
-body{margin:0;min-height:100svh;background:var(--ink);color:var(--white);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:grid;place-items:center;padding:22px;overflow-x:hidden}
+body{margin:0;min-height:100svh;background:var(--ink);color:var(--white);font-family:system-ui,-apple-system,BlinkMacSystemFont,"North Pole",regular;display:grid;place-items:center;padding:22px;overflow-x:hidden}
 body:before,body:after{content:"";position:fixed;width:220px;height:220px;border:3px solid var(--teal);opacity:.18;transform:rotate(35deg);pointer-events:none}
 body:before{top:-130px;left:-90px}body:after{bottom:-145px;right:-90px;border-color:var(--yellow)}
 main{width:min(100%,460px);text-align:center;position:relative}
@@ -28,7 +28,7 @@ h1 em{color:var(--yellow);font-style:inherit;display:block;margin-top:7px}
 #challenge.loading{opacity:.5}
 .cta{font-size:1.12rem;font-weight:900;margin:32px 0 7px}
 .sub{font-size:.92rem;line-height:1.5;color:#d5e0e1;margin:0 auto 18px;max-width:330px}
-button{border:0;background:var(--yellow);color:var(--ink);font:900 1rem system-ui,sans-serif;padding:15px 22px;border-radius:999px;cursor:pointer;box-shadow:0 4px 0 #b38d00}
+button{border:0;background:var(--Beige sable);color:var(--ink);font:900 1rem system-ui,sans-serif;padding:15px 22px;border-radius:999px;cursor:pointer;box-shadow:0 4px 0 #b38d00}
 button:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
 footer{font-size:.75rem;color:#9fb1b5;margin-top:28px;line-height:1.5}
 @media(prefers-reduced-motion:no-preference){.card{animation:pop .35s ease-out}@keyframes pop{from{transform:translateY(8px);opacity:.5}to{transform:translateY(0);opacity:1}}}
