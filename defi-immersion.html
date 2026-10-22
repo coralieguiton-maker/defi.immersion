@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071820">
+<meta name="description" content="Découvre ton défi IMMERSION et viens le relever au stand !">
+<title>Ton défi IMMERSION</title>
+<style>
+:root{--ink:#071820;--yellow:#ffd329;--teal:#36d8d0;--white:#f8f7f2}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;background:var(--ink);color:var(--white);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:grid;place-items:center;padding:22px;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;width:220px;height:220px;border:3px solid var(--teal);opacity:.18;transform:rotate(35deg);pointer-events:none}
+body:before{top:-130px;left:-90px}body:after{bottom:-145px;right:-90px;border-color:var(--yellow)}
+main{width:min(100%,460px);text-align:center;position:relative}
+.logo{font-weight:900;letter-spacing:.14em;font-size:.82rem;color:var(--teal);margin-bottom:25px}
+.logo span{display:block;color:var(--white);font-size:.68rem;letter-spacing:.22em;font-weight:600;margin-top:5px}
+h1{font-size:clamp(2.2rem,11vw,3.6rem);line-height:.96;text-transform:uppercase;font-weight:1000;font-style:italic;letter-spacing:-.055em;margin:0 0 18px}
+h1 em{color:var(--yellow);font-style:inherit;display:block;margin-top:7px}
+.intro{color:#d5e0e1;line-height:1.5;margin:0 auto 26px;max-width:330px}
+.tag{display:inline-block;background:var(--teal);color:var(--ink);font-weight:900;text-transform:uppercase;font-size:.75rem;letter-spacing:.06em;padding:8px 13px;border-radius:5px;transform:rotate(-2deg);margin-bottom:16px}
+.card{background:var(--white);color:var(--ink);border-radius:18px;padding:26px 22px 24px;box-shadow:7px 7px 0 var(--yellow);min-height:215px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.card h2{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;margin:0 0 17px;color:#087c7a}
+#challenge{font-size:clamp(1.35rem,5.5vw,1.85rem);line-height:1.23;font-weight:850;margin:0}
+#challenge.loading{opacity:.5}
+.cta{font-size:1.12rem;font-weight:900;margin:32px 0 7px}
+.sub{font-size:.92rem;line-height:1.5;color:#d5e0e1;margin:0 auto 18px;max-width:330px}
+button{border:0;background:var(--yellow);color:var(--ink);font:900 1rem system-ui,sans-serif;padding:15px 22px;border-radius:999px;cursor:pointer;box-shadow:0 4px 0 #b38d00}
+button:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+footer{font-size:.75rem;color:#9fb1b5;margin-top:28px;line-height:1.5}
+@media(prefers-reduced-motion:no-preference){.card{animation:pop .35s ease-out}@keyframes pop{from{transform:translateY(8px);opacity:.5}to{transform:translateY(0);opacity:1}}}
+</style>
+</head>
+<body>
+<main>
+  <div class="logo">⌁ IMMERSION <span>ÉCOUTER · SE POSER · AVANCER</span></div>
+  <h1>30 secondes.<em>Un défi !</em></h1>
+  <p class="intro">Ton défi vient d’apparaître. Lis-le, puis viens le relever avec nous au stand IMMERSION !</p>
+  <section class="card" aria-live="polite" aria-atomic="true">
+    <div class="tag" id="category">Ton défi</div>
+    <h2>MISSION DU MOMENT</h2>
+    <p id="challenge">On prépare ton défi…</p>
+  </section>
+  <p class="cta">Tu le relèves ?</p>
+  <p class="sub">Retrouve l’équipe IMMERSION au stand pour réaliser ton défi et repartir avec une petite surprise !</p>
+  <button id="another" type="button">🎲 Un autre défi</button>
+  <footer>Tu peux participer sans accepter que ta vidéo soit publiée.<br>Pour les mineurs, demande l’accord requis avant toute diffusion.</footer>
+</main>
+<script>
+const challenges = [
+  {category:"Défi 01 · Fun", text:"Résume ta semaine en trois mots, sans réfléchir !"},
+  {category:"Défi 02 · Créativité", text:"Invite quelqu’un à découvrir IMMERSION comme si tu présentais une émission télé !"},
+  {category:"Défi 03 · Foi", text:"Si tu pouvais poser une seule question à Dieu, laquelle choisirais-tu ?"},
+  {category:"Défi 04 · Spontanéité", text:"Termine cette phrase : « Cette année, j’aimerais oser… »"},
+  {category:"Défi 05 · Avenir", text:"Si tu pouvais faire une pause de trois mois pour réfléchir à ta vie, qu’aimerais-tu éclaircir ?"},
+  {category:"Défi 06 · Foi", text:"Pour toi, ça veut dire quoi écouter Dieu ?"},
+  {category:"Défi 07 · Humour", text:"Présente-toi en 10 secondes comme si tu étais la star du jour !"},
+  {category:"Défi 08 · Personnel", text:"Quel conseil donnerais-tu à ton toi d’il y a cinq ans ?"}
+];
+let previous = -1;
+function drawChallenge(){
+  let index;
+  do { index = Math.floor(Math.random() * challenges.length); } while (challenges.length > 1 && index === previous);
+  previous = index;
+  const item = challenges[index];
+  const challenge = document.getElementById("challenge");
+  challenge.classList.add("loading");
+  window.setTimeout(() => {
+    document.getElementById("category").textContent = item.category;
+    challenge.textContent = item.text;
+    challenge.classList.remove("loading");
+  }, 100);
+}
+drawChallenge();
+document.getElementById("another").addEventListener("click", drawChallenge);
+</script>
+</body>
+</html>
