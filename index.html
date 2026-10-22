@@ -14,7 +14,17 @@
   --white: #D8C5AB;
   }
 *{box-sizing:border-box}
-body{margin:0;min-height:100svh;background:var(--bleu-petrole);color:var(--beige-sable);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bleu-petrole);
+  color: var(--beige-sable);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  overflow-x: hidden;
+}
 body:before,body:after{content:"";position:fixed;width:220px;height:220px;border:3px solid var(--beige-sable);opacity:.18;transform:rotate(35deg);pointer-events:none}
 body:before{top:-130px;left:-90px}body:after{bottom:-145px;right:-90px;border-color:var(--terracotta)}
 main{width:min(100%,460px);text-align:center;position:relative}
@@ -25,7 +35,7 @@ h1 em{color:var(--terracotta);font-style:inherit;display:block;margin-top:7px}
 .intro{color:#d5e0e1;line-height:1.5;margin:0 auto 26px;max-width:330px}
 .tag{display:inline-block;background:var(--beige-sable);color:var(--bleu-petrole);font-weight:900;text-transform:uppercase;font-size:.75rem;letter-spacing:.06em;padding:8px 13px;border-radius:5px;transform:rotate(-2deg);margin-bottom:16px}
 .card{background:var(--beige-sable);color:var(--bleu-petrole);border-radius:18px;padding:26px 22px 24px;box-shadow:7px 7px 0 var(--terracotta);min-height:215px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-card h2{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;margin:0 0 17px;color:var(--bleu-petrole)}
+.card h2{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;margin:0 0 17px;color:var(--bleu-petrole)}
 #challenge{font-size:clamp(1.35rem,5.5vw,1.85rem);line-height:1.23;font-weight:850;margin:0}
 #challenge.loading{opacity:.5}
 .cta{font-size:1.12rem;font-weight:900;margin:32px 0 7px}
